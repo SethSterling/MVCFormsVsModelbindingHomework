@@ -27,5 +27,22 @@ namespace MVCFormsVsModelbindingHomework.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public IActionResult AddProductWithBinding()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddProductWithBinding(Product p)
+        {
+            if (ModelState.IsValid)
+            {
+                ViewData["Message"] = $"{p.Name} was added";
+                //Add to Database Here...
+            }
+            return View();
+        }
     }
 }
